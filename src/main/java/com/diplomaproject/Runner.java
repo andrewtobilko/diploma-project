@@ -3,14 +3,12 @@ package com.diplomaproject;
 import org.springframework.boot.*;
 import org.springframework.boot.autoconfigure.*;
 import org.springframework.stereotype.*;
-import org.springframework.web.bind.annotation.*;
 
-@Controller
-@EnableAutoConfiguration
-public class SampleController {
+@SpringBootApplication
+public class Runner {
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(SampleController.class, args);
+        SpringApplication.run(Runner.class, args);
     }
 
 }
