@@ -1,7 +1,13 @@
 package com.tobilko.settings.cors;
 
-/**
- * Created by andre on 13.04.2017.
- */
-public class CORSConfiguration {
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+
+public class CORSConfiguration implements Configuration {
+
+    private boolean enabled;
+
+    private Map<Boolean, List<URL>> urls;
+
 }
