@@ -1,2 +1,13 @@
-<button type="button"  [routerLink]="['settings']">Settings</button>
+<header></header>
+
+<div class="main-menu">
+
+    <div class="main-menu-wrapper">
+        <a md-button routerLink="settings">Server Configuration</a>
+        <a md-button routerLink="logs">Server Logs</a>
+        <a md-button routerLink="information">Server Information</a>
+    </div>
+</div>
 <router-outlet></router-outlet>
+
+<footer></footer>
