@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import {SettingsComponent} from "./app.settings-component";
 import {APPLICATION_ROUTERS} from "app/app.routers";
 import {RouterModule} from "@angular/router";
+import {CROSSettingsComponent} from "app/app.CROS-settings-component";
 
 @NgModule({
   declarations: [
     AppComponent,
-    SettingsComponent
+    SettingsComponent,
+    CROSSettingsComponent
   ],
   imports: [
     RouterModule.forRoot(APPLICATION_ROUTERS),
