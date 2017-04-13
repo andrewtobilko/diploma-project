@@ -1,0 +1,28 @@
+.settings {
+  display: none;
+  border: 1px solid black;
+  overflow: auto;
+  height: 700px;
+}
+
+.settings:hover {
+  border: 1px solid black;
+  overflow: auto;
+  height: 700px;
+}
+
+.settings_menu {
+  float: left;
+  border: 1px solid black;
+  height: 100%;
+  margin: 10px;
+  width: 20%;
+}
+
+.settings_menu_list {
+  float: right;
+  height: 100%;
+  width: 70%;
+  margin: 10px;
+  border: 1px solid black;
+}
