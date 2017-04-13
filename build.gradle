@@ -12,7 +12,7 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
 jar {
-    baseName = 'web-design-university-course-2'
+    baseName = 'diploma-project'
     version = '0.0.1'
 }
 
@@ -21,12 +21,9 @@ repositories {
 }
 
 dependencies {
-    compile	'org.springframework.boot:spring-boot-starter-data-jpa:1.5.1.RELEASE',
-            'org.springframework.boot:spring-boot-starter-data-rest:1.5.1.RELEASE',
-            'org.springframework.boot:spring-boot-starter-web:1.5.1.RELEASE',
-            'org.springframework.boot:spring-boot-starter-freemarker:1.5.1.RELEASE',
-
-            'org.apache.commons:commons-lang3:3.5'
+    compile	'org.springframework.boot:spring-boot-starter-data-jpa:1.5.2.RELEASE',
+            'org.springframework.boot:spring-boot-starter-data-rest:1.5.2.RELEASE',
+            'org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE'
 
     runtime 'com.h2database:h2'
 
