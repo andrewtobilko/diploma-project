@@ -4,10 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {SettingsComponent} from "./app.settings-component";
+import {SettingsComponent} from "./settings/app.settings-component";
 import {APPLICATION_ROUTERS} from "app/app.routers";
 import {RouterModule} from "@angular/router";
-import {CROSSettingsComponent} from "cors-settings-component";
+import {CROSSettingsComponent} from "./settings/cors/cors-settings-component";
 
 @NgModule({
   declarations: [
