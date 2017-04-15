@@ -9,7 +9,7 @@ import {RouterModule} from "@angular/router";
 import {CORSSettingsComponent} from "./settings/cors/cors-settings-component";
 import {SettingsComponent} from "app/settings/settings-component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MdButtonModule, MdInputModule} from "@angular/material";
+import {MdButtonModule, MdCheckboxModule, MdInputModule, MdCardModule, MdRadioModule} from "@angular/material";
 import 'hammerjs';
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
@@ -28,7 +28,7 @@ import {FooterComponent} from "./footer/footer.component";
         FormsModule,
         HttpModule,
         BrowserAnimationsModule,
-        MdInputModule, MdButtonModule
+        MdInputModule, MdButtonModule, MdCheckboxModule, MdCardModule, MdRadioModule
     ],
     providers: [],
     bootstrap: [AppComponent]

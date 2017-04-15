@@ -5,4 +5,8 @@ import { Component } from '@angular/core';
     templateUrl: './cors-settings-component.html',
     styleUrls: ['./cors-settings-component.css'],
 })
-export class CORSSettingsComponent {}
+export class CORSSettingsComponent {
+
+    align = 'start';
+
+}
