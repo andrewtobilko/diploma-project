@@ -1,3 +1,34 @@
 <div class="cors-settings">
-    <h1>CORS settings</h1>
+
+    <md-card>
+        <md-card-content>
+            <h2 class="title">CORS settings</h2>
+
+            <div class="availability-option">
+                <span class="option disabled-option">disabled</span>
+                <section class="slide-toggle">
+                    <md-slide-toggle [color]="'primary'" [(ngModel)]="enabled" (change)="changeOption()"></md-slide-toggle>
+                </section>
+                <span class="option enabled-option">enabled</span>
+            </div>
+
+            <div class="adding-new-url">
+                <p class="title">
+                    <label for="url">Add a URL to {{getPrefixForAddingURLSentence()}}secure it with CORS configuration:</label>
+                </p>
+                <md-input-container class="example-full-width">
+                    <input mdInput id="url" placeholder="/example/resource/1/">
+                </md-input-container>
+                <button md-button>Add</button>
+            </div>
+
+            <div class="url-list">
+                <div class="url-list-item" *ngFor="let url of list">
+                    {{url}}
+                </div>
+            </div>
+
+        </md-card-content>
+    </md-card>
+
 </div>

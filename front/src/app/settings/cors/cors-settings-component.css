@@ -1,7 +1,8 @@
-.settings {
-    overflow: auto;
+.availability-option .slide-toggle {
+    display: inline-block;
+    line-height: 50px;
 }
 
-.settings_menu {
-    float: left;
+.availability-option .option {
+    margin: 0 10px;
 }
