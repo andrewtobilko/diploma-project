@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 
 @Component ({
     selector: 'cors-settings',
@@ -7,6 +7,21 @@ import { Component } from '@angular/core';
 })
 export class CORSSettingsComponent {
 
-    align = 'start';
+    enabled: boolean = false;
+    map = {
+        false: ["enabled-url-1", "enabled-url-2", "enabled-url-3"],
+        true: ["disabled-url-1", "disabled-url-2", "disabled-url-3"]
+    };
+
+    list: Array<string> = this.map[false.toString()];
+
+    getPrefixForAddingURLSentence(): string {
+        return this.enabled ? "un" : "";
+    }
+
+    @Output()
+    changeOption(): void {
+        this.list = this.map[this.enabled.toString()];
+    }
 
 }
