@@ -15,7 +15,7 @@ export class CORSSettingsComponent {
 
     list: Array<string> = this.map[false.toString()];
 
-    getPrefixForAddingURLSentence(): string {
+    getPrefixForURLSecurityStatus(): string {
         return this.enabled ? "un" : "";
     }
 

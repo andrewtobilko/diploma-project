@@ -14,7 +14,7 @@
 
             <div class="adding-new-url">
                 <p class="title">
-                    <label for="url">Add a URL to {{getPrefixForAddingURLSentence()}}secure it with CORS configuration:</label>
+                    <label for="url">Add a URL to {{getPrefixForURLSecurityStatus()}}secure it with CORS configuration:</label>
                 </p>
                 <md-input-container class="example-full-width">
                     <input mdInput id="url" placeholder="/example/resource/1/">
@@ -23,6 +23,9 @@
             </div>
 
             <div class="url-list">
+                <p class="title">
+                    A list of URLs which will be {{getPrefixForURLSecurityStatus()}}secured with CORS configuration:
+                </p>
                 <div class="url-list-item" *ngFor="let url of list">
                     {{url}}
                 </div>
