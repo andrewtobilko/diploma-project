@@ -6,6 +6,8 @@ import javax.persistence.*;
 import java.net.URL;
 import java.util.List;
 
+import static javax.persistence.FetchType.*;
+
 @Data
 @Entity
 public class ConfigurationURLStorage {
@@ -14,7 +16,7 @@ public class ConfigurationURLStorage {
     @GeneratedValue
     private Long id;
 
-    @ElementCollection
+    @ElementCollection(fetch = EAGER)
     private List<URL> urls;
 
 }

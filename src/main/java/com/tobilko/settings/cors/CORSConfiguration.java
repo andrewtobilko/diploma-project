@@ -10,6 +10,8 @@ import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
+import static javax.persistence.CascadeType.*;
+
 @Data
 @Table(name = "cors")
 @Entity(name = "cors")
@@ -21,7 +23,7 @@ public class CORSConfiguration implements Configuration {
 
     private boolean enabled;
 
-    @OneToMany
+    @OneToMany(cascade = {PERSIST, REMOVE})
     private Map<ConfigurationState, ConfigurationURLStorage> map;
 
 }
