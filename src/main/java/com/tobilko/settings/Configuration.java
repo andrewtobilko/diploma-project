@@ -1,3 +1,3 @@
-package com.tobilko.settings.cors;
+package com.tobilko.settings;
 
 public interface Configuration {}
