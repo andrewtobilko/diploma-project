@@ -1,0 +1,14 @@
+.main-menu .main-menu-wrapper .main-menu-item {
+    height: 50px !important;
+    background: seagreen;
+    color: #FFF;
+    text-transform: uppercase;
+}
+
+.main-menu .main-menu-wrapper .main-menu-item button {
+    width: 90%;
+}
+
+.main-menu {
+    height: 70px;
+}

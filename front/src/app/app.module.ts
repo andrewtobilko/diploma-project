@@ -6,12 +6,11 @@ import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
 import {APPLICATION_ROUTERS} from "./router";
 import {RouterModule} from "@angular/router";
-import {CORSSettingsComponent} from "./settings/cors/cors-settings-component";
-import {SettingsComponent} from "app/settings/settings-component";
+import {CORSSettingsComponent} from "./settings/cors/cors-settings.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
     MdButtonModule, MdCheckboxModule, MdInputModule, MdCardModule, MdRadioModule,
-    MdSlideToggleModule
+    MdSlideToggleModule, MdGridListModule, MdMenuModule, MdIconModule
 } from "@angular/material";
 import 'hammerjs';
 import {HeaderComponent} from "./header/header.component";
@@ -20,7 +19,6 @@ import {FooterComponent} from "./footer/footer.component";
 @NgModule({
     declarations: [
         AppComponent,
-        SettingsComponent,
         CORSSettingsComponent,
         HeaderComponent,
         FooterComponent
@@ -36,7 +34,10 @@ import {FooterComponent} from "./footer/footer.component";
         MdCheckboxModule,
         MdCardModule,
         MdRadioModule,
-        MdSlideToggleModule
+        MdSlideToggleModule,
+        MdGridListModule,
+        MdMenuModule,
+        MdIconModule
     ],
     providers: [],
     bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 <div class="cors-settings">
 
-    <md-card>
+    <md-card class="cors-settings-card">
         <md-card-content>
             <h2 class="title">CORS settings</h2>
 
@@ -26,6 +26,10 @@
                 <div class="url-list-item" *ngFor="let url of list">
                     {{url}}
                 </div>
+            </div>
+
+            <div class="save-button-wrapper">
+                <button class="save-button" md-button (click)="saveCORSConfiguration()">Save</button>
             </div>
 
         </md-card-content>

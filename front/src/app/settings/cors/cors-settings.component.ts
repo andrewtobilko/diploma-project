@@ -2,8 +2,8 @@ import { Component, Output } from '@angular/core';
 
 @Component ({
     selector: 'cors-settings',
-    templateUrl: './cors-settings-component.html',
-    styleUrls: ['./cors-settings-component.css'],
+    templateUrl: './cors-settings.component.html',
+    styleUrls: ['./cors-settings.component.css'],
 })
 export class CORSSettingsComponent {
 
@@ -19,9 +19,12 @@ export class CORSSettingsComponent {
         return this.enabled ? "un" : "";
     }
 
-    @Output()
     changeOption(): void {
         this.list = this.map[this.enabled.toString()];
+    }
+
+    saveCORSConfiguration(): void {
+
     }
 
 }

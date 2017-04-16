@@ -3,9 +3,27 @@
 <div class="main-menu">
 
     <div class="main-menu-wrapper">
-        <a md-button routerLink="settings">Server Configuration</a>
-        <a md-button routerLink="logs">Server Logs</a>
-        <a md-button routerLink="information">Server Information</a>
+
+        <md-grid-list class="main-menu-wrapper" cols="3" rowHeight="100px">
+            <md-grid-tile class="main-menu-item">
+                <button [mdMenuTriggerFor]="menu" md-button>SERVER CONFIGURATION</button>
+            </md-grid-tile>
+
+            <md-menu #menu="mdMenu">
+                <button md-menu-item routerLink="settings/cors">CORS Configuration</button>
+                <button md-menu-item routerLink="x">X Configuration</button>
+                <button md-menu-item routerLink="y">Y Configuration</button>
+            </md-menu>
+
+            <md-grid-tile class="main-menu-item">
+                <button md-button routerLink="logs">SERVER LOGS</button>
+            </md-grid-tile>
+
+            <md-grid-tile class="main-menu-item">
+                <button md-button routerLink="information">SERVER INFORMATION</button>
+            </md-grid-tile>
+
+        </md-grid-list>
     </div>
 </div>
 <router-outlet></router-outlet>

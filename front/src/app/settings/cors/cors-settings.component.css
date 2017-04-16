@@ -6,3 +6,7 @@
 .availability-option .option {
     margin: 0 10px;
 }
+
+.save-button-wrapper .save-button {
+    background: seagreen;
+}
