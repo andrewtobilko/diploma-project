@@ -1,11 +1,11 @@
 package com.tobilko.settings.cors;
 
+import com.tobilko.settings.ConfigurationState;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import static org.springframework.http.HttpStatus.CREATED;
+import static org.springframework.http.HttpStatus.NO_CONTENT;
 
 @RestController
 @RequiredArgsConstructor
@@ -13,10 +13,17 @@ public class CORSConfigurationController {
 
     private final CORSConfigurationService service;
 
+    @ResponseStatus(CREATED)
     @PutMapping("/api/cors/modify")
-    @ResponseStatus(HttpStatus.CREATED)
     public void putCORSConfiguration(@RequestBody CORSConfiguration update) {
         service.putCORSConfiguration(update);
+    }
+
+    @ResponseStatus(NO_CONTENT)
+    @DeleteMapping("/api/cors/remove-url")
+    public void removeSpecificURLForActiveState(@RequestParam String url,
+                                                @RequestParam ConfigurationState state) {
+        service.removeSpecificURLForActiveState(url, state);
     }
 
 }

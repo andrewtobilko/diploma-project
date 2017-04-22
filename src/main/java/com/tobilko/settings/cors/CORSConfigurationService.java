@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -33,6 +34,23 @@ public class CORSConfigurationService {
         for (ConfigurationState state : with.keySet()) {
             map.put(state, with.get(state));
         }
+    }
+
+    @Transactional
+    public void removeSpecificURLForActiveState(String url, ConfigurationState state) {
+        repository.findFirstBy().ifPresent(configuration -> {
+            ConfigurationURLStorage storage = configuration.getMap().get(state);
+
+            // todo
+            if (storage != null) {
+                List<String> urls = storage.getUrls();
+                if (urls != null) {
+                    urls.remove(url);
+                }
+            }
+
+            repository.save(configuration);
+        });
     }
 
 }
