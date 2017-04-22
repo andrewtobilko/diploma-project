@@ -15,6 +15,7 @@ import {
 import 'hammerjs';
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
+import {Logger} from "angular2-logger/core";
 
 @NgModule({
     declarations: [
@@ -39,7 +40,7 @@ import {FooterComponent} from "./footer/footer.component";
         MdMenuModule,
         MdIconModule
     ],
-    providers: [],
+    providers: [Logger],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

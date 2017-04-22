@@ -1,6 +1,8 @@
-import { Component, Output } from '@angular/core';
+import {Component, OnInit} from "@angular/core";
 import {SettingsService} from "../settings.service";
 import {CORSSettings} from "./model/cors-settings.model";
+import {SettingsState} from "../state/settings-state.model";
+import {Logger} from "angular2-logger/core";
 
 @Component ({
     selector: 'cors-settings',
@@ -8,19 +10,28 @@ import {CORSSettings} from "./model/cors-settings.model";
     styleUrls: ['./cors-settings.component.css'],
     providers: [SettingsService]
 })
-export class CORSSettingsComponent {
+export class CORSSettingsComponent implements OnInit {
 
-    enabled: boolean = false;
-    url: string ;
-    map = {
-        false: ["enabled-url-1", "enabled-url-2", "enabled-url-3"],
-        true: ["disabled-url-1", "disabled-url-2", "disabled-url-3"]
-    };
+    enabled: boolean;
+    url: string;
+    map: object;
 
-    list: Array<string> = this.map[false.toString()];
+    list: Array<string>;
 
-    constructor(private service: SettingsService) {
+    constructor(private service: SettingsService,
+                private logger: Logger) {}
 
+    ngOnInit(): void {
+        this.service.fetchCORSSettings()
+            .subscribe(configuration => this.initConfiguration(configuration[0]));
+    }
+
+    private initConfiguration(configuration: CORSSettings): void {
+        this.logger.warn("Configuration: ", configuration);
+
+        this.enabled = SettingsState.convertSettingsStateToBoolean(configuration.getState);
+        this.map = configuration.getMap;
+        this.list = this.map[SettingsState.convertBooleanToSettingsStateString(this.enabled)].urls;
     }
 
     getPrefixForAddingURLSentence(): string {
@@ -28,15 +39,17 @@ export class CORSSettingsComponent {
     }
 
     changeOption(): void {
-        this.list = this.map[this.enabled.toString()];
+        this.list = this.map[SettingsState.convertBooleanToSettingsStateString(this.enabled)].urls;
     }
 
     saveCORSConfiguration(): void {
-        this.service.saveCORSSettings(new CORSSettings(this.enabled, this.list));
+        this.service.saveCORSSettings(new CORSSettings(SettingsState.convertBooleanToSettingsStateString(this.enabled), this.map));
     }
 
     addURLFromInputToList(): void {
-        this.list.push(this.url);
+        if (this.url) {
+            this.list.push(this.url);
+        }
     }
 
 }

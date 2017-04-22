@@ -5,6 +5,9 @@ spring:
         password: postgres
     jpa:
         hibernate:
-            ddl-auto: create
+            ddl-auto: update
+    data:
+      rest:
+        basePath: /api
 server:
   port: 5000
