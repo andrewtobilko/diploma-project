@@ -6,11 +6,14 @@ import com.tobilko.settings.ConfigurationURLStorage;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.net.URL;
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 
-import static javax.persistence.CascadeType.*;
+import static javax.persistence.CascadeType.MERGE;
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.CascadeType.REMOVE;
+import static javax.persistence.EnumType.*;
+import static javax.persistence.FetchType.*;
 
 @Data
 @Table(name = "cors")
@@ -21,9 +24,14 @@ public class CORSConfiguration implements Configuration {
     @GeneratedValue
     private Long id;
 
-    private boolean enabled;
+    @Enumerated(STRING)
+    private ConfigurationState state;
 
-    @OneToMany(cascade = {PERSIST, REMOVE})
+    @OneToMany(cascade = {PERSIST, MERGE, REMOVE}, fetch = EAGER)
     private Map<ConfigurationState, ConfigurationURLStorage> map;
+
+    public CORSConfiguration() {
+        map = new HashMap<>();
+    }
 
 }
