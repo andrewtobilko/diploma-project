@@ -1,5 +1,6 @@
 export class CORSSettings {
 
-    constructor(private enabled: boolean, private map?: Object) {}
+    constructor(private enabled: boolean,
+                private list: Array<string>) {}
 
 }

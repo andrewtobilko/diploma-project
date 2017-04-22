@@ -1,9 +1,14 @@
 import {CORSSettings} from "./cors/model/cors-settings.model";
+import {Injectable} from "@angular/core";
+import {Http} from "@angular/http";
 
+@Injectable()
 export class SettingsService {
 
-    saveCORSSettings(settings: CORSSettings): void {
+    constructor(private http: Http) {}
 
+    saveCORSSettings(settings: CORSSettings): void {
+        //this.http.put("");
     }
 
 }

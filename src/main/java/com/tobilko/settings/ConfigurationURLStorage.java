@@ -17,6 +17,6 @@ public class ConfigurationURLStorage {
     private Long id;
 
     @ElementCollection(fetch = EAGER)
-    private List<URL> urls;
+    private List<String> urls;
 
 }

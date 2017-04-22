@@ -1,9 +1,12 @@
 import { Component, Output } from '@angular/core';
+import {SettingsService} from "../settings.service";
+import {CORSSettings} from "./model/cors-settings.model";
 
 @Component ({
     selector: 'cors-settings',
     templateUrl: './cors-settings.component.html',
     styleUrls: ['./cors-settings.component.css'],
+    providers: [SettingsService]
 })
 export class CORSSettingsComponent {
 
@@ -16,6 +19,10 @@ export class CORSSettingsComponent {
 
     list: Array<string> = this.map[false.toString()];
 
+    constructor(private service: SettingsService) {
+
+    }
+
     getPrefixForAddingURLSentence(): string {
         return this.enabled ? "un" : "";
     }
@@ -25,7 +32,7 @@ export class CORSSettingsComponent {
     }
 
     saveCORSConfiguration(): void {
-
+        this.service.saveCORSSettings(new CORSSettings(this.enabled, this.list));
     }
 
     addURLFromInputToList(): void {
