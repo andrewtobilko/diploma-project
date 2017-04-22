@@ -8,6 +8,7 @@ import { Component, Output } from '@angular/core';
 export class CORSSettingsComponent {
 
     enabled: boolean = false;
+    url: string ;
     map = {
         false: ["enabled-url-1", "enabled-url-2", "enabled-url-3"],
         true: ["disabled-url-1", "disabled-url-2", "disabled-url-3"]
@@ -25,6 +26,10 @@ export class CORSSettingsComponent {
 
     saveCORSConfiguration(): void {
 
+    }
+
+    addURLFromInputToList(): void {
+        this.list.push(this.url);
     }
 
 }

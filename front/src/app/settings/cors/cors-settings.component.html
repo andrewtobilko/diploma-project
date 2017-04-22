@@ -17,9 +17,9 @@
                     <label for="url">Add a URL to {{getPrefixForAddingURLSentence()}}secure it with CORS configuration:</label>
                 </p>
                 <md-input-container class="example-full-width">
-                    <input mdInput id="url" placeholder="/example/resource/1/">
+                    <input mdInput id="url" [(ngModel)]="url" placeholder="/example/resource/1/">
                 </md-input-container>
-                <button md-button>Add</button>
+                <button md-button (click)="addURLFromInputToList()">Add</button>
             </div>
 
             <div class="url-list">
