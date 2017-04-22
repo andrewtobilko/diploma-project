@@ -16,13 +16,15 @@ import 'hammerjs';
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {Logger} from "angular2-logger/core";
+import {URLComponent} from "./url/url.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         CORSSettingsComponent,
         HeaderComponent,
-        FooterComponent
+        FooterComponent,
+        URLComponent
     ],
     imports: [
         RouterModule.forRoot(APPLICATION_ROUTERS),

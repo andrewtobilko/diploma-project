@@ -47,8 +47,32 @@ export class CORSSettingsComponent implements OnInit {
     }
 
     addURLFromInputToList(): void {
-        if (this.url) {
+        if (!this.isThereElementInTheList(this.list, this.url)) {
             this.list.push(this.url);
+        }
+    }
+
+    private isThereElementInTheList(list: Array<string>, element: string): boolean {
+        return list.indexOf(element) != -1;
+    }
+
+    isAddButtonDisabled(): boolean {
+        return !this.url || this.url.length == 0;
+    }
+
+    removeURLFromList(url: string): void {
+        this.removeURLFromListLocally(url);
+
+        console.log("removeURLFromList", this.enabled, SettingsState.convertBooleanToSettingsStateString(this.enabled));
+
+        this.service.removeCORSURLFromList(SettingsState.convertBooleanToSettingsStateString(this.enabled), url);
+    }
+
+    private removeURLFromListLocally(url: string): void {
+        var index = this.list.indexOf(url);
+
+        if (index > -1) {
+            this.list.splice(index, 1);
         }
     }
 
