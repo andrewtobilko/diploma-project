@@ -9,6 +9,8 @@ import {ServerLoggingService} from "./service/server-logging.service";
 })
 export class ServerLoggingComponent implements OnInit {
 
+    messages: Array<string>;
+
     constructor(private service: ServerLoggingService) {
     }
 
@@ -17,9 +19,13 @@ export class ServerLoggingComponent implements OnInit {
     }
 
     prepareServerLogs(): void {
+        this.service
+            .fetchAllServerLoggerMessages()
+            .subscribe(array => this.initialiseMessages(array));
+    }
 
-        // todo
-
+    initialiseMessages(logs: Array<string>): void {
+        this.messages = logs;
     }
 
 }
