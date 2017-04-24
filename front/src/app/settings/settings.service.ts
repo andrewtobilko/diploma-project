@@ -65,6 +65,16 @@ export class SettingsService {
             .subscribe(response => this.logger.warn(response));
     }
 
+    fetchAllUsers(): Observable<User[]> {
+        return this.http
+            .get("http://localhost:5000/api/users")
+            .map(response => {
+                var users = response.json()._embedded["users"];
+
+                return users.map(user => new User(user.login, user.password, user.id));
+            });
+    }
+
     fetchAuthenticationSettings(): Observable<AuthenticationSettings[]> {
         this.logger.warn('Fetching auth configuration...');
 
@@ -85,14 +95,16 @@ export class SettingsService {
             .subscribe(response => this.logger.warn(response));
     }
 
-    saveUser(user: User) : void {
-        // todo
-        alert("saveUser::service")
+    saveUser(user: User): void {
+        this.http
+            .post("http://localhost:5000/api/users", user)
+            .subscribe(response => this.logger.warn(response));
     }
 
-    removeUserWithServiceByLogin(login: string) {
-        // todo
-        alert("removeUserWithServiceByLogin")
+    removeUserWithServiceByLogin(login: string): void {
+        this.http
+            .get("http://localhost:5000/api/users/search/remove-by-login?login=" + login)
+            .subscribe(response => this.logger.warn(response));
     }
 
 }

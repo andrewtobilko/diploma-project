@@ -21,17 +21,27 @@ export class AuthenticationSettingsComponent implements OnInit {
 
     ngOnInit(): void {
         this.service.fetchAuthenticationSettings().subscribe(configuration => this.initConfiguration(configuration[0]));
+        this.service.fetchAllUsers().subscribe(users => this.initUsers(users));
     }
 
     private initConfiguration(configuration: AuthenticationSettings): void {
         this.enabled = SettingsState.convertSettingsStateToBoolean(configuration.getState);
     }
 
-    saveUser() {
-        var user = new User(this.userLogin, this.userPassword);
+    private initUsers(users: Array<User>) {
+        this.users = users;
+    }
 
-        this.saveUserLocally(user);
-        this.saveUserWithService(user);
+    saveUser() {
+        if (!this.users.find(user => user.getLogin == this.userLogin)) {
+
+            var user = new User(this.userLogin, this.userPassword);
+
+            this.saveUserLocally(user);
+            this.saveUserWithService(user);
+        } else {
+            console.log("User with this login [" + this.userLogin + "] exists.")
+        }
     }
 
     private saveUserLocally(user: User) {
@@ -48,7 +58,12 @@ export class AuthenticationSettingsComponent implements OnInit {
     }
 
     private removeUserLocally(login: string): void {
-        // todo
+        var user = this.users.find(user => user.getLogin == login);
+        var index = this.users.indexOf(user);
+
+        if (index > -1) {
+            this.users.splice(index, 1);
+        }
     }
 
     private removeUserWithServiceByLogin(login: string): void {

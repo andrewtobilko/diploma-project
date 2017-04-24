@@ -11,9 +11,10 @@
                 </md-slide-toggle>
 
                 <div class="url-list">
-                    <url *ngFor="let urlTitle of getCORSActualMap()" [title]="urlTitle" [shouldRemoveButtonBeShown]="false"></url>
+                    <url *ngFor="let urlTitle of getCORSActualMap()" [title]="urlTitle"
+                         [shouldRemoveButtonBeShown]="false"></url>
                 </div>
-                <p>(ref to settings)</p>
+                <p class="link"><a href="/settings/cors">Натістить, щоб перейти до зміни налаштування.</a></p>
             </div>
         </md-card-content>
     </md-card>
@@ -23,19 +24,23 @@
             <div class="description">
                 <md-slide-toggle
                         class="enabled"
-                        [checked]="getBooleanFromCurrentSettingState(serverPasswordEncodingInformation.getState)" disabled="true">
+                        [checked]="getBooleanFromCurrentSettingState(serverPasswordEncodingInformation.getState)"
+                        disabled="true">
                     {{serverPasswordEncodingInformation.getState}}
                 </md-slide-toggle>
                 <div class="password-encoding-method">
-                    <div class="method" *ngIf="getBooleanFromCurrentSettingState(serverPasswordEncodingInformation.getState)">
+                    <div class="method"
+                         *ngIf="getBooleanFromCurrentSettingState(serverPasswordEncodingInformation.getState)">
                         Method: {{ serverPasswordEncodingInformation.getMethod }}
                     </div>
-                    <div class="no-method" *ngIf="!getBooleanFromCurrentSettingState(serverPasswordEncodingInformation.getState)">
+                    <div class="no-method"
+                         *ngIf="!getBooleanFromCurrentSettingState(serverPasswordEncodingInformation.getState)">
                         No methods are used to encode passwords.
                     </div>
                 </div>
 
-                <p>(ref to settings)</p>
+                <p class="link"><a href="/settings/password-encoding">Натістить, щоб перейти до зміни налаштування.</a>
+                </p>
             </div>
         </md-card-content>
     </md-card>

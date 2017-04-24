@@ -13,27 +13,36 @@
                 <span class="option enabled-option">enabled [увімкнено]</span>
             </div>
 
-            <div class="adding-new-user">
-                <div class="title">
-                    <div>Add a user and allow them to use the data to authenticate:</div>
-                    <div>[Додати користувача та дозволити йому використовувати ці дані для аутентифікації]:</div>
+            <div *ngIf="enabled">
+
+                <div class="adding-new-user">
+                    <div class="title">
+                        <div>Add a user and allow them to use the data to authenticate:</div>
+                        <div>[Додати користувача та дозволити йому використовувати ці дані для аутентифікації]:</div>
+                    </div>
+                    <md-input-container class="example-full-width">
+                        <input mdInput id="userLogin" [(ngModel)]="userLogin" placeholder="andrew">
+                    </md-input-container>
+                    <md-input-container class="example-full-width">
+                        <input mdInput type="password" id="userPassword" [(ngModel)]="userPassword"
+                               placeholder="password">
+                    </md-input-container>
+
+                    <button md-button class="add-button" (click)="saveUser()" [disabled]="isAddButtonDisabled()">Add
+                        [Додати]
+                    </button>
                 </div>
-                <md-input-container class="example-full-width">
-                    <input mdInput id="userLogin" [(ngModel)]="userLogin" placeholder="andrew">
-                </md-input-container>
-                <md-input-container class="example-full-width">
-                    <input mdInput type="password" id="userPassword" [(ngModel)]="userPassword" placeholder="password">
-                </md-input-container>
 
-                <button md-button class="add-button" (click)="saveUser()" [disabled]="isAddButtonDisabled()">Add [Додати]</button>
-            </div>
+                <div class="user-list">
+                    <user *ngFor="let user of users" [userLogin]="user.getLogin" [userPassword]="user.getPassword"
+                          (onRemove)="removeUser(user.getLogin)"></user>
+                </div>
 
-            <div class="user-list">
-                <user *ngFor="let user of users" [userLogin]="user.getLogin" [userPassword]="user.getPassword" (onRemove)="removeUser(user.getLogin)"></user>
             </div>
 
             <div class="save-button-wrapper">
-                <button class="save-button" md-button (click)="saveAuthenticationConfiguration()">Save [Зберегти]</button>
+                <button class="save-button" md-button (click)="saveAuthenticationConfiguration()">Save [Зберегти]
+                </button>
             </div>
 
         </md-card-content>

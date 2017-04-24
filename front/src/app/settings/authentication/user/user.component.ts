@@ -11,8 +11,9 @@ export class UserComponent {
     @Input() userPassword: string;
 
     @Output() onRemove: EventEmitter<string> = new EventEmitter<string>();
-    @Input() shouldRemoveButtonBeShown: boolean = true;
+
+    removeUser(login: string) : void {
+        this.onRemove.emit(login);
+    }
 
 }
-
-// https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png
