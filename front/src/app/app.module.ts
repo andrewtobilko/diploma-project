@@ -10,18 +10,20 @@ import {CORSSettingsComponent} from "./settings/cors/cors-settings.component";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {
     MdButtonModule, MdCheckboxModule, MdInputModule, MdCardModule, MdRadioModule,
-    MdSlideToggleModule, MdGridListModule, MdMenuModule, MdIconModule
+    MdSlideToggleModule, MdGridListModule, MdMenuModule, MdIconModule, MdSelectModule
 } from "@angular/material";
 import 'hammerjs';
 import {HeaderComponent} from "./header/header.component";
 import {FooterComponent} from "./footer/footer.component";
 import {Logger} from "angular2-logger/core";
 import {URLComponent} from "./url/url.component";
+import {PasswordEncodingSettingsComponent} from "./settings/password-encoding/password-encoding-settings.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         CORSSettingsComponent,
+        PasswordEncodingSettingsComponent,
         HeaderComponent,
         FooterComponent,
         URLComponent
@@ -40,7 +42,8 @@ import {URLComponent} from "./url/url.component";
         MdSlideToggleModule,
         MdGridListModule,
         MdMenuModule,
-        MdIconModule
+        MdIconModule,
+        MdSelectModule
     ],
     providers: [Logger],
     bootstrap: [AppComponent]
