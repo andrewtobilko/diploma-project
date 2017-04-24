@@ -20,6 +20,7 @@ import {URLComponent} from "./url/url.component";
 import {PasswordEncodingSettingsComponent} from "./settings/password-encoding/password-encoding-settings.component";
 import {ServerInformationComponent} from "./information/server-information.component";
 import {SettingsService} from "app/settings/settings.service";
+import {ServerLoggingComponent} from "app/logging/server-logging.component";
 
 @NgModule({
     declarations: [
@@ -29,7 +30,8 @@ import {SettingsService} from "app/settings/settings.service";
         HeaderComponent,
         FooterComponent,
         URLComponent,
-        ServerInformationComponent
+        ServerInformationComponent,
+        ServerLoggingComponent
     ],
     imports: [
         RouterModule.forRoot(APPLICATION_ROUTERS),

@@ -2,6 +2,7 @@ import {Routes} from "@angular/router";
 import {CORSSettingsComponent} from "./settings/cors/cors-settings.component";
 import {PasswordEncodingSettingsComponent} from "./settings/password-encoding/password-encoding-settings.component";
 import {ServerInformationComponent} from "./information/server-information.component";
+import {ServerLoggingComponent} from "app/logging/server-logging.component";
 
 export const APPLICATION_ROUTERS: Routes = [
     {
@@ -15,5 +16,9 @@ export const APPLICATION_ROUTERS: Routes = [
     {
         path: 'information',
         component: ServerInformationComponent
+    },
+    {
+        path: 'logging',
+        component: ServerLoggingComponent
     }
 ];
