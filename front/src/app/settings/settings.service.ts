@@ -42,6 +42,19 @@ export class SettingsService {
             .subscribe(response => this.logger.warn(response));
     }
 
+    fetchPasswordEncodingSettings(): Observable<PasswordEncodingSettings[]> {
+        this.logger.warn('Fetching a password encoding configuration...');
+
+        return this.http
+            .get("http://localhost:5000/api/password-encoding")
+            .map(response => {
+                var configurations = response.json()._embedded["password-encoding-configurations"];
+
+                return configurations
+                    .map(configuration => new PasswordEncodingSettings(configuration.state, configuration.method));
+            });
+    }
+
     savePasswordEncodingConfiguration(configuration: PasswordEncodingSettings): void {
         this.http
             .put("http://localhost:5000/api/password-encoding/modify", configuration)

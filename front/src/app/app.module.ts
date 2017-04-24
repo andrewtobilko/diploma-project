@@ -19,6 +19,7 @@ import {Logger} from "angular2-logger/core";
 import {URLComponent} from "./url/url.component";
 import {PasswordEncodingSettingsComponent} from "./settings/password-encoding/password-encoding-settings.component";
 import {ServerInformationComponent} from "./information/server-information.component";
+import {SettingsService} from "app/settings/settings.service";
 
 @NgModule({
     declarations: [
@@ -47,7 +48,7 @@ import {ServerInformationComponent} from "./information/server-information.compo
         MdIconModule,
         MdSelectModule
     ],
-    providers: [Logger],
+    providers: [Logger, SettingsService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

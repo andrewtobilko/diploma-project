@@ -1,3 +1,43 @@
 <div class="server-information-wrapper">
-    server-information
+
+    <md-card class="settings-information cors-settings-card">
+        <md-card-content>
+            <h5 class="title">CORS settings</h5>
+            <div class="description">
+                <md-slide-toggle
+                        class="enabled"
+                        [checked]="getBooleanFromCurrentSettingState(serverCORSInformation.getState)" disabled="true">
+                    {{serverCORSInformation.getState}}
+                </md-slide-toggle>
+
+                <div class="url-list">
+                    <url *ngFor="let urlTitle of getCORSActualMap()" [title]="urlTitle" [shouldRemoveButtonBeShown]="false"></url>
+                </div>
+                <p>(ref to settings)</p>
+            </div>
+        </md-card-content>
+    </md-card>
+    <md-card class="settings-information password-encoding-settings-card">
+        <md-card-content>
+            <h5 class="title">Password encoding settings</h5>
+            <div class="description">
+                <md-slide-toggle
+                        class="enabled"
+                        [checked]="getBooleanFromCurrentSettingState(serverPasswordEncodingInformation.getState)" disabled="true">
+                    {{serverPasswordEncodingInformation.getState}}
+                </md-slide-toggle>
+                <div class="password-encoding-method">
+                    <div class="method" *ngIf="getBooleanFromCurrentSettingState(serverPasswordEncodingInformation.getState)">
+                        Method: {{ serverPasswordEncodingInformation.getMethod }}
+                    </div>
+                    <div class="no-method" *ngIf="!getBooleanFromCurrentSettingState(serverPasswordEncodingInformation.getState)">
+                        No methods are used to encode passwords.
+                    </div>
+                </div>
+
+                <p>(ref to settings)</p>
+            </div>
+        </md-card-content>
+    </md-card>
+
 </div>

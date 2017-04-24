@@ -25,6 +25,7 @@ dependencies {
             'org.springframework.boot:spring-boot-starter-data-rest:1.5.2.RELEASE',
             'org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE',
             'org.springframework.boot:spring-boot-starter-security:1.5.2.RELEASE',
+            'org.springframework.boot:spring-boot-starter-logging:1.5.2.RELEASE'
             'org.postgresql:postgresql:42.0.0'
 
     runtime 'com.h2database:h2'

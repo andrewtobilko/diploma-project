@@ -9,6 +9,7 @@ export class URLComponent {
 
     @Input() title: string;
     @Output() onRemove: EventEmitter<string> = new EventEmitter<string>();
+    @Input() shouldRemoveButtonBeShown: boolean = true;
 
     removeURL(url: string) : void {
         this.onRemove.emit(url);

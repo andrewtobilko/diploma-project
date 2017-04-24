@@ -1,8 +1,9 @@
 import {SettingsService} from "../settings.service";
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {PasswordEncodingSettings} from "app/settings/password-encoding/model/password-encoding-settings.model";
 import {SettingsState} from "../state/settings-state.model";
 import {PasswordEncodingMethod} from "app/settings/password-encoding/method/password-encoding-method.model";
+import {Logger} from "angular2-logger/core";
 
 @Component({
     selector: 'password-encoding-settings',
@@ -10,7 +11,7 @@ import {PasswordEncodingMethod} from "app/settings/password-encoding/method/pass
     styleUrls: ['./password-encoding-settings.component.css'],
     providers: [SettingsService]
 })
-export class PasswordEncodingSettingsComponent {
+export class PasswordEncodingSettingsComponent implements OnInit {
 
     enabled: boolean;
     encodingMethod: PasswordEncodingMethod;
@@ -21,7 +22,19 @@ export class PasswordEncodingSettingsComponent {
         PasswordEncodingMethod.SCRYPT,
     ];
 
-    constructor(private service: SettingsService) {}
+    constructor(private service: SettingsService, private logger: Logger) {}
+
+    ngOnInit(): void {
+        this.service.fetchPasswordEncodingSettings()
+            .subscribe(configuration => this.initConfiguration(configuration[0]));
+    }
+
+    private initConfiguration(configuration: PasswordEncodingSettings): void {
+        this.logger.warn("Password encoding configuration: ", configuration);
+
+        this.enabled = SettingsState.convertSettingsStateToBoolean(configuration.getState);
+        this.encodingMethod = configuration.getMethod;
+    }
 
     savePasswordEncodingConfiguration(): void {
         this.service.savePasswordEncodingConfiguration(
