@@ -34,10 +34,6 @@ export class CORSSettingsComponent implements OnInit {
         this.list = this.map[SettingsState.convertBooleanToSettingsStateString(this.enabled)].urls;
     }
 
-    getPrefixForAddingURLSentence(): string {
-        return this.enabled ? "un" : "";
-    }
-
     changeOption(): void {
         this.list = this.map[SettingsState.convertBooleanToSettingsStateString(this.enabled)].urls;
     }

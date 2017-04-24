@@ -12,18 +12,23 @@
                 <span class="option enabled-option">enabled [увімкнено]</span>
             </div>
 
-            <div class="adding-new-url">
-                <p class="title">
-                    <label for="url">Add a URL to {{getPrefixForAddingURLSentence()}}secure it with CORS configuration:</label>
-                </p>
-                <md-input-container class="example-full-width">
-                    <input mdInput id="url" [(ngModel)]="url" placeholder="/example/resource/1/">
-                </md-input-container>
-                <button md-button class="add-button" (click)="addURLFromInputToList()" [disabled]="isAddButtonDisabled()">Add</button>
-            </div>
+            <div *ngIf="enabled">
+                <div class="adding-new-url">
+                    <p class="title">
+                        <label for="url">Додайте URL серверів, які матимуть право спілкуватись з Вашим сервером:</label>
+                    </p>
+                    <md-input-container class="example-full-width">
+                        <input mdInput id="url" [(ngModel)]="url" placeholder="https://server-example.com">
+                    </md-input-container>
+                    <button md-button class="add-button" (click)="addURLFromInputToList()"
+                            [disabled]="isAddButtonDisabled()">Add
+                    </button>
+                </div>
 
-            <div class="url-list">
-                <url *ngFor="let urlTitle of list" [title]="urlTitle" (onRemove)="removeURLFromList(urlTitle)"></url>
+                <div class="url-list">
+                    <url *ngFor="let urlTitle of list" [title]="urlTitle"
+                         (onRemove)="removeURLFromList(urlTitle)"></url>
+                </div>
             </div>
 
             <div class="save-button-wrapper">
