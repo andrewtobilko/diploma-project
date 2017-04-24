@@ -18,6 +18,7 @@ import {FooterComponent} from "./footer/footer.component";
 import {Logger} from "angular2-logger/core";
 import {URLComponent} from "./url/url.component";
 import {PasswordEncodingSettingsComponent} from "./settings/password-encoding/password-encoding-settings.component";
+import {ServerInformationComponent} from "./information/server-information.component";
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import {PasswordEncodingSettingsComponent} from "./settings/password-encoding/pa
         PasswordEncodingSettingsComponent,
         HeaderComponent,
         FooterComponent,
-        URLComponent
+        URLComponent,
+        ServerInformationComponent
     ],
     imports: [
         RouterModule.forRoot(APPLICATION_ROUTERS),
