@@ -5,6 +5,7 @@ import {Observable} from "rxjs";
 import {Logger} from "angular2-logger/core";
 import {SettingsState} from "./state/settings-state.model";
 import {PasswordEncodingSettings} from "./password-encoding/model/password-encoding-settings.model";
+import {User} from "app/settings/authentication/user/model/user.model";
 
 @Injectable()
 export class SettingsService {
@@ -59,6 +60,10 @@ export class SettingsService {
         this.http
             .put("http://localhost:5000/api/password-encoding/modify", configuration)
             .subscribe(response => this.logger.warn(response));
+    }
+
+    saveUser(user: User) : void {
+
     }
 
 }

@@ -21,6 +21,8 @@ import {PasswordEncodingSettingsComponent} from "./settings/password-encoding/pa
 import {ServerInformationComponent} from "./information/server-information.component";
 import {SettingsService} from "app/settings/settings.service";
 import {ServerLoggingComponent} from "app/logging/server-logging.component";
+import {AuthenticationSettingsComponent} from "./settings/authentication/authentication-settings.component";
+import {UserComponent} from "./settings/authentication/user/user.component";
 
 @NgModule({
     declarations: [
@@ -31,7 +33,9 @@ import {ServerLoggingComponent} from "app/logging/server-logging.component";
         FooterComponent,
         URLComponent,
         ServerInformationComponent,
-        ServerLoggingComponent
+        ServerLoggingComponent,
+        AuthenticationSettingsComponent,
+        UserComponent
     ],
     imports: [
         RouterModule.forRoot(APPLICATION_ROUTERS),

@@ -1,0 +1,13 @@
+.availability-option .slide-toggle {
+    display: inline-block;
+    line-height: 50px;
+}
+
+.availability-option .option {
+    margin: 0 10px;
+}
+
+.save-button-wrapper .save-button,
+.adding-new-user .add-button {
+    background: seagreen;
+}

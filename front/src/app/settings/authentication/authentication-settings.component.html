@@ -1,0 +1,40 @@
+<div class="authentication-settings">
+
+    <md-card class="authentication-settings-card">
+        <md-card-content>
+            <h2 class="title">Basic Authentication Settings</h2>
+
+            <div class="availability-option">
+                <span class="option disabled-option">disabled</span>
+                <section class="slide-toggle">
+                    <md-slide-toggle [(ngModel)]="enabled"></md-slide-toggle>
+                </section>
+                <span class="option enabled-option">enabled</span>
+            </div>
+
+            <div class="adding-new-user">
+                <p class="title">
+                    <label>Add a user:</label>
+                </p>
+                <md-input-container class="example-full-width">
+                    <input mdInput id="userLogin" [(ngModel)]="userLogin" placeholder="andrew">
+                </md-input-container>
+                <md-input-container class="example-full-width">
+                    <input mdInput type="password" id="userPassword" [(ngModel)]="userPassword" placeholder="password">
+                </md-input-container>
+
+                <button md-button class="add-button" (click)="saveUser()" [disabled]="isAddButtonDisabled()">Add</button>
+            </div>
+
+            <!--<div class="user-list">-->
+                <!--<url *ngFor="let user of list" [title]="urlTitle" (onRemove)="removeURLFromList(urlTitle)"></url>-->
+            <!--</div>-->
+
+            <div class="save-button-wrapper">
+                <button class="save-button" md-button (click)="saveAuthenticationConfiguration()">Save</button>
+            </div>
+
+        </md-card-content>
+    </md-card>
+
+</div>
