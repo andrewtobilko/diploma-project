@@ -11,3 +11,9 @@ spring:
         basePath: /api
 server:
   port: 5000
+
+logging:
+  level:
+    org:
+      springframework:
+        web: INFO
