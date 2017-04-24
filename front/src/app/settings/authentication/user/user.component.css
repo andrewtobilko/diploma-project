@@ -1,0 +1,15 @@
+.user-wrapper .avatar {
+    width: 100px;
+}
+
+.avatar-image {
+    background-image: url('/assets/img/avatar.png');
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.user-card {
+    width: 40%;
+    display: inline-block;
+    margin: 20px;
+}

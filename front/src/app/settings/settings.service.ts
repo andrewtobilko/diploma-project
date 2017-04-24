@@ -63,7 +63,13 @@ export class SettingsService {
     }
 
     saveUser(user: User) : void {
+        // todo
+        alert("saveUser::service")
+    }
 
+    removeUserWithServiceByLogin(login: string) {
+        // todo
+        alert("removeUserWithServiceByLogin")
     }
 
 }

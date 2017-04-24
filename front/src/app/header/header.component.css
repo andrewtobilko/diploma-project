@@ -1,3 +1,11 @@
 .diploma-project-title {
     text-align: center;
 }
+
+.diploma-project-title .title {
+    margin-bottom: 0;
+}
+
+.diploma-project-title .sub-title {
+    margin-bottom: 15px;
+}

@@ -2,20 +2,22 @@
 
     <md-card class="authentication-settings-card">
         <md-card-content>
-            <h2 class="title">Basic Authentication Settings</h2>
+            <div class="main-title">Basic Authentication Settings</div>
+            <div class="sub-main-title">[Налаштування серверної ідентифікації за допомогою Basic Authentication]</div>
 
             <div class="availability-option">
-                <span class="option disabled-option">disabled</span>
+                <span class="option disabled-option">disabled [вимкнено]</span>
                 <section class="slide-toggle">
                     <md-slide-toggle [(ngModel)]="enabled"></md-slide-toggle>
                 </section>
-                <span class="option enabled-option">enabled</span>
+                <span class="option enabled-option">enabled [увімкнено]</span>
             </div>
 
             <div class="adding-new-user">
-                <p class="title">
-                    <label>Add a user:</label>
-                </p>
+                <div class="title">
+                    <div>Add a user and allow them to use the data to authenticate:</div>
+                    <div>[Додати користувача та дозволити йому використовувати ці дані для аутентифікації]:</div>
+                </div>
                 <md-input-container class="example-full-width">
                     <input mdInput id="userLogin" [(ngModel)]="userLogin" placeholder="andrew">
                 </md-input-container>
@@ -23,15 +25,15 @@
                     <input mdInput type="password" id="userPassword" [(ngModel)]="userPassword" placeholder="password">
                 </md-input-container>
 
-                <button md-button class="add-button" (click)="saveUser()" [disabled]="isAddButtonDisabled()">Add</button>
+                <button md-button class="add-button" (click)="saveUser()" [disabled]="isAddButtonDisabled()">Add [Додати]</button>
             </div>
 
-            <!--<div class="user-list">-->
-                <!--<url *ngFor="let user of list" [title]="urlTitle" (onRemove)="removeURLFromList(urlTitle)"></url>-->
-            <!--</div>-->
+            <div class="user-list">
+                <user *ngFor="let user of users" [userLogin]="user.getLogin" [userPassword]="user.getPassword" (onRemove)="removeUser(user.getLogin)"></user>
+            </div>
 
             <div class="save-button-wrapper">
-                <button class="save-button" md-button (click)="saveAuthenticationConfiguration()">Save</button>
+                <button class="save-button" md-button (click)="saveAuthenticationConfiguration()">Save [Зберегти]</button>
             </div>
 
         </md-card-content>

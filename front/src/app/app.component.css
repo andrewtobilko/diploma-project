@@ -12,3 +12,10 @@
 .main-menu {
     height: 70px;
 }
+
+.sub-button-title {
+    display: block;
+    line-height: 0;
+    height: 10px;
+    font-size: 12px;
+}

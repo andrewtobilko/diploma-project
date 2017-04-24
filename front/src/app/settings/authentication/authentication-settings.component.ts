@@ -38,6 +38,19 @@ export class AuthenticationSettingsComponent implements OnInit {
         this.service.saveUser(user);
     }
 
+    removeUser(login: string) {
+        this.removeUserLocally(login);
+        this.removeUserWithServiceByLogin(login);
+    }
+
+    private removeUserLocally(login: string): void {
+        // todo
+    }
+
+    private removeUserWithServiceByLogin(login: string): void {
+        this.service.removeUserWithServiceByLogin(login);
+    }
+
     isAddButtonDisabled(): boolean {
         return (!this.userLogin || this.userLogin.length == 0) ||
             (!this.userPassword || this.userPassword.length == 0);

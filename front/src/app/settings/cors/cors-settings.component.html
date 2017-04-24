@@ -5,11 +5,11 @@
             <h2 class="title">CORS settings</h2>
 
             <div class="availability-option">
-                <span class="option disabled-option">disabled</span>
+                <span class="option disabled-option">disabled [вимкнено]</span>
                 <section class="slide-toggle">
                     <md-slide-toggle [(ngModel)]="enabled" (change)="changeOption()"></md-slide-toggle>
                 </section>
-                <span class="option enabled-option">enabled</span>
+                <span class="option enabled-option">enabled [увімкнено]</span>
             </div>
 
             <div class="adding-new-url">
@@ -27,7 +27,7 @@
             </div>
 
             <div class="save-button-wrapper">
-                <button class="save-button" md-button (click)="saveCORSConfiguration()">Save</button>
+                <button class="save-button" md-button (click)="saveCORSConfiguration()">Save [Зберегти]</button>
             </div>
 
         </md-card-content>

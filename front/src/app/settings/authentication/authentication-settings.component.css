@@ -1,13 +1,29 @@
 .availability-option .slide-toggle {
     display: inline-block;
     line-height: 50px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 .availability-option .option {
-    margin: 0 10px;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .save-button-wrapper .save-button,
 .adding-new-user .add-button {
     background: seagreen;
+}
+
+.adding-new-user .title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.authentication-settings-card .main-title {
+    font-size: 20px;
+}
+
+.authentication-settings-card .sub-main-title {
+    font-size: 14px;
 }
