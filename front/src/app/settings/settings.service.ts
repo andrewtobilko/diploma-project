@@ -6,6 +6,7 @@ import {Logger} from "angular2-logger/core";
 import {SettingsState} from "./state/settings-state.model";
 import {PasswordEncodingSettings} from "./password-encoding/model/password-encoding-settings.model";
 import {User} from "app/settings/authentication/user/model/user.model";
+import {AuthenticationSettings} from "./authentication/model/authentication-settings.model";
 
 @Injectable()
 export class SettingsService {
@@ -55,6 +56,28 @@ export class SettingsService {
                     .map(configuration => new PasswordEncodingSettings(configuration.state, configuration.method));
             });
     }
+
+    saveAuthenticationSettings(settings: AuthenticationSettings): void {
+        this.logger.warn('Sending a PUT to the server...', settings);
+
+        this.http
+            .put("http://localhost:5000/api/authentication/modify", settings)
+            .subscribe(response => this.logger.warn(response));
+    }
+
+    fetchAuthenticationSettings(): Observable<AuthenticationSettings[]> {
+        this.logger.warn('Fetching auth configuration...');
+
+        return this.http
+            .get("http://localhost:5000/api/authentication")
+            .map(response => {
+                var configurations = response.json()._embedded["authentication-configurations"];
+
+                return configurations
+                    .map(configuration => new AuthenticationSettings(configuration.state));
+            });
+    }
+
 
     savePasswordEncodingConfiguration(configuration: PasswordEncodingSettings): void {
         this.http

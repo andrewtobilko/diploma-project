@@ -1,6 +1,8 @@
 import {SettingsService} from "../settings.service";
 import {Component, OnInit} from "@angular/core";
 import {User} from "./user/model/user.model";
+import {SettingsState} from "../state/settings-state.model";
+import {AuthenticationSettings} from "app/settings/authentication/model/authentication-settings.model";
 
 @Component ({
     selector: 'authentication',
@@ -18,9 +20,11 @@ export class AuthenticationSettingsComponent implements OnInit {
     constructor(private service: SettingsService) {}
 
     ngOnInit(): void {
+        this.service.fetchAuthenticationSettings().subscribe(configuration => this.initConfiguration(configuration[0]));
+    }
 
-        // todo
-
+    private initConfiguration(configuration: AuthenticationSettings): void {
+        this.enabled = SettingsState.convertSettingsStateToBoolean(configuration.getState);
     }
 
     saveUser() {
@@ -54,6 +58,10 @@ export class AuthenticationSettingsComponent implements OnInit {
     isAddButtonDisabled(): boolean {
         return (!this.userLogin || this.userLogin.length == 0) ||
             (!this.userPassword || this.userPassword.length == 0);
+    }
+
+    saveAuthenticationConfiguration(): void {
+        this.service.saveAuthenticationSettings(new AuthenticationSettings(SettingsState.convertBooleanToSettingsStateString(this.enabled)));
     }
 
 }
