@@ -1,6 +1,6 @@
 import {CORSSettings} from "./cors/model/cors-settings.model";
 import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
+import {Headers, Http} from "@angular/http";
 import {Observable} from "rxjs";
 import {Logger} from "angular2-logger/core";
 import {SettingsState} from "./state/settings-state.model";
@@ -11,7 +11,8 @@ import {AuthenticationSettings} from "./authentication/model/authentication-sett
 @Injectable()
 export class SettingsService {
 
-    constructor(private http: Http, private logger: Logger) {}
+    constructor(private http: Http,
+                private logger: Logger) {}
 
     saveCORSSettings(settings: CORSSettings): void {
         this.logger.warn('Sending a PUT to the server...', settings);
@@ -24,8 +25,12 @@ export class SettingsService {
     fetchCORSSettings(): Observable<CORSSettings[]> {
         this.logger.warn('Fetching a CORS configuration...');
 
-        return this.http
-            .get("http://localhost:5000/api/cors")
+        //let headers = new Headers();
+        //headers.append('Authorization', 'Basic ' + btoa('admin:admin'));
+
+        return this
+            .http
+            .get("http://localhost:5000/api/cors"/*, {headers: headers}*/)
             .map(response => {
                 var configurations = response.json()._embedded["cors-configurations"];
 

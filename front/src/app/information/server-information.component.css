@@ -1,3 +1,11 @@
 .settings-information {
     margin: 10px 0;
 }
+
+.link {
+    color: #FFFFFF !important;
+}
+
+a:-webkit-any-link {
+    color: #FFFFFF !important;
+}
