@@ -1,4 +1,4 @@
-package com.tobilko.configuration;
+package com.tobilko.configuration.global;
 
 import com.tobilko.settings.cors.CORSConfigurationRepository;
 import lombok.RequiredArgsConstructor;

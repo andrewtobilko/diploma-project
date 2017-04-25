@@ -1,4 +1,4 @@
-package com.tobilko.configuration;
+package com.tobilko.configuration.global;
 
 import com.tobilko.settings.ConfigurationState;
 import com.tobilko.settings.encoding.PasswordEncodingConfiguration;
